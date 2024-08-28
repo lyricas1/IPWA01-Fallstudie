@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <!-- Meta Tags und Bootstrap per CDN einbinden -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <title>CO2-Transparenz GmbH</title>
+    <style type="text/css">
+        header {
+            background-color: #afa; /* Hintergrundfarbe des Headers */
+            padding: 10px 0;
+        }
+        header .navbar {
+            background-color: transparent; /* Hintergrundfarbe der Navbar transparent setzen */
+            padding: 0;
+            height: 10%;
+        }
+        header nav ul li { display: inline; }
+        main { display: block; }
+        footer { background-color: #faa; }
+        footer nav ul { text-align: center; }
+        footer nav ul li { display: inline; }
+        .content { background-color: #999; }
+        @media screen and (max-width: 767px) {
+            main { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Bootstrap Popper.js und Jquery per CDN einbinden -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Suche..." aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">suchen</button>
+                    </form>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.instagram.com/WebAppStartup">Instagram</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.facebook.com/WebAppStartup">Facebook</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Ab hier Inhalt der Seite -->
+    <main id="main">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="CO2-Transparenz" height="36"></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index2.html">Start</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="emissions.html">Emissionsdaten</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="co2-transparenz.html">Über uns</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">Unsere Stellenangebote</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid text-center content">
+            <h1>Hier finden Sie die Ergebnisse unserer umfangreichen Analysen zu den CO2-Emissionsdaten</h1>
+            <br>
+            <h3>Sie können die Tabelle sortieren und filtern.</h3>
+            
+             <!-- Filterung und Sortierung erfolgt per Javascript -->
+            <div class="table-responsive">
+              <table class="table table-light table-hover table-striped" id="tabelleco2">
+                <thead class="table-light">
+                  <tr>
+                    <th scope="col">Lfd</th>
+                    <th scope="col">Land</th>
+                    <th scope="col">Unternehmen / Typ</th>
+                    <th scope="col">Jahr</th>
+                    <th scope="col">Emissionen (*)</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    
+                    <tr><td scope="row">1</td><td>Africa Eastern and Southern</td><td>Land</td><td>2020</td><td>544.952.503,00</td></tr>
+                    <tr><td scope="row">2</td><td>Afghanistan</td><td>Land</td><td>2020</td><td>8709.47</td></tr>
+                    <tr><td scope="row">3</td><td>Africa Western and Central</td><td>Land</td><td>2020</td><td>215915.61</td></tr>
+                    <tr><td scope="row">4</td><td>Angola</td><td>Land</td><td>2020</td><td>19814.5</td></tr>
+                    <tr><td scope="row">5</td><td>Albania</td><td>Land</td><td>2020</td><td>4383.2</td></tr>
+                    <tr><td scope="row">6</td><td>Andorra</td><td>Land</td><td>2020</td><td>448.884.399,00</td></tr>
+                    <tr><td scope="row">7</td><td>Arab World</td><td>Land</td><td>2020</td><td>1765052.9</td></tr>
+                    <tr><td scope="row">8</td><td>United Arab Emirates</td><td>Land</td><td>2020</td><td>188088.7</td></tr>
+                    <tr><td scope="row">9</td><td>Argentina</td><td>Land</td><td>2020</td><td>154535.9</td></tr>
+                    <tr><td scope="row">10</td><td>Armenia</td><td>Land</td><td>2020</td><td>6746.6</td></tr>
+                    <tr><td scope="row">11</td><td>Antigua and Barbuda</td><td>Land</td><td>2020</td><td>474.6</td></tr>
+                    <tr><td scope="row">12</td><td>Australia</td><td>Land</td><td>2020</td><td>378996.8</td></tr>
+                    <tr><td scope="row">13</td><td>Austria</td><td>Land</td><td>2020</td><td>59142.4</td></tr>
+                    <tr><td scope="row">14</td><td>Azerbaijan</td><td>Land</td><td>2020</td><td>34305.0</td></tr>
+                    <tr><td scope="row">15</td><td>Burundi</td><td>Land</td><td>2020</td><td>713.466,00</td></tr>
+                    <tr><td scope="row">16</td><td>Belgium</td><td>Land</td><td>2020</td><td>85364.1</td></tr>
+                    <tr><td scope="row">17</td><td>Benin</td><td>Land</td><td>2020</td><td>7980.4</td></tr>
+                    <tr><td scope="row">18</td><td>Burkina Faso</td><td>Land</td><td>2020</td><td>5456.7</td></tr>
+                    <tr><td scope="row">19</td><td>Bangladesh</td><td>Land</td><td>2020</td><td>85493.1</td></tr>
+                    <tr><td scope="row">20</td><td>Bulgaria</td><td>Land</td><td>2020</td><td>34138.1</td></tr>
+                    <tr><td scope="row">21</td><td>Bahrain</td><td>Land</td><td>2020</td><td>32470.2</td></tr>
+                    <tr><td scope="row">22</td><td>Bosnia and Herzegovina</td><td>Land</td><td>2020</td><td>20946.8</td></tr>
+                    <tr><td scope="row">23</td><td>Belarus</td><td>Land</td><td>2020</td><td>54801.5</td></tr>
+                    <tr><td scope="row">24</td><td>Belize</td><td>Land</td><td>2020</td><td>687.6</td></tr>
+                    <tr><td scope="row">25</td><td>Bolivia</td><td>Land</td><td>2020</td><td>18375.3</td></tr>
+                    <tr><td scope="row">26</td><td>Brazil</td><td>Land</td><td>2020</td><td>414138.8</td></tr>
+                    <tr><td scope="row">27</td><td>Barbados</td><td>Land</td><td>2020</td><td>1096.07</td></tr>
+                    <tr><td scope="row">28</td><td>Brunei Darussalam</td><td>Land</td><td>2020</td><td>9588.0</td></tr>
+                    <tr><td scope="row">29</td><td>Bhutan</td><td>Land</td><td>2020</td><td>1035.2</td></tr>
+                    <tr><td scope="row">30</td><td>Botswana</td><td>Land</td><td>2020</td><td>5.763.687,00</td></tr>
+                    <tr><td scope="row">31</td><td>Central African Republic</td><td>Land</td><td>2020</td><td>236.6</td></tr>
+                    <tr><td scope="row">32</td><td>Canada</td><td>Land</td><td>2020</td><td>516873.7</td></tr>
+                    <tr><td scope="row">33</td><td>Central Europe and the Baltics</td><td>Land</td><td>2020</td><td>598490.02</td></tr>
+                    <tr><td scope="row">34</td><td>Switzerland</td><td>Land</td><td>2020</td><td>34916.1</td></tr>
+                    <tr><td scope="row">35</td><td>Chile</td><td>Land</td><td>2020</td><td>84827.8</td></tr>
+                    <tr><td scope="row">36</td><td>China</td><td>Land</td><td>2020</td><td>10944686.2</td></tr>
+                    <tr><td scope="row">37</td><td>Cote d'Ivoire</td><td>Land</td><td>2020</td><td>10894.9</td></tr>
+                    <tr><td scope="row">38</td><td>Cameroon</td><td>Land</td><td>2020</td><td>9928.4</td></tr>
+                    <tr><td scope="row">39</td><td>Colombia</td><td>Land</td><td>2020</td><td>79057.6</td></tr>
+                    <tr><td scope="row">40</td><td>Comoros</td><td>Land</td><td>2020</td><td>328.2</td></tr>
+                    <tr><td scope="row">41</td><td>Cabo Verde</td><td>Land</td><td>2020</td><td>620.6</td></tr>
+                    <tr><td scope="row">42</td><td>Costa Rica</td><td>Land</td><td>2020</td><td>6967.4</td></tr>
+                    <tr><td scope="row">43</td><td>Caribbean small states</td><td>Land</td><td>2020</td><td>32776.99</td></tr>
+                    <tr><td scope="row">44</td><td>Cuba</td><td>Land</td><td>2020</td><td>24327.8</td></tr>
+                    <tr><td scope="row">45</td><td>Cyprus</td><td>Land</td><td>2020</td><td>6771.8</td></tr>
+                    <tr><td scope="row">46</td><td>Czechia</td><td>Land</td><td>2020</td><td>88835.2</td></tr>
+                    <tr><td scope="row">47</td><td>Germany</td><td>Land</td><td>2020</td><td>603350.5</td></tr>
+                    <tr><td scope="row">48</td><td>Djibouti</td><td>Land</td><td>2020</td><td>427.7</td></tr>
+                    <tr><td scope="row">49</td><td>Dominica</td><td>Land</td><td>2020</td><td>162.8</td></tr>
+                    <tr><td scope="row">50</td><td>Denmark</td><td>Land</td><td>2020</td><td>27356.5</td></tr>
+                    <tr><td scope="row">51</td><td>Dominican Republic</td><td>Land</td><td>2020</td><td>22881.3</td></tr>
+                    <tr><td scope="row">52</td><td>Algeria</td><td>Land</td><td>2020</td><td>161563.0</td></tr>
+                    <tr><td scope="row">53</td><td>East Asia & Pacific (excluding high income)</td><td>Land</td><td>2020</td><td>12660698.2</td></tr>
+                    <tr><td scope="row">54</td><td>Early-demographic dividend</td><td>Land</td><td>2020</td><td>6.805.648.307,00</td></tr>
+                    <tr><td scope="row">55</td><td>East Asia & Pacific</td><td>Land</td><td>2020</td><td>14708135.6</td></tr>
+                    <tr><td scope="row">56</td><td>Europe & Central Asia (excluding high income)</td><td>Land</td><td>2020</td><td>2830714.8</td></tr>
+                    <tr><td scope="row">57</td><td>Europe & Central Asia</td><td>Land</td><td>2020</td><td>5.641.772.700.492,00</td></tr>
+                    <tr><td scope="row">58</td><td>Ecuador</td><td>Land</td><td>2020</td><td>34431.0</td></tr>
+                    <tr><td scope="row">59</td><td>Euro area</td><td>Land</td><td>2020</td><td>1872835.52</td></tr>
+                    <tr><td scope="row">60</td><td>Eritrea</td><td>Land</td><td>2020</td><td>706.4</td></tr>
+                    <tr><td scope="row">61</td><td>Spain</td><td>Land</td><td>2020</td><td>202705.8</td></tr>
+                    <tr><td scope="row">62</td><td>Estonia</td><td>Land</td><td>2020</td><td>7097.52</td></tr>
+                    <tr><td scope="row">63</td><td>Ethiopia</td><td>Land</td><td>2020</td><td>18098.0</td></tr>
+                    <tr><td scope="row">64</td><td>European Union</td><td>Land</td><td>2020</td><td>2465025.42</td></tr>
+                    <tr><td scope="row">65</td><td>Fragile and conflict affected situations</td><td>Land</td><td>2020</td><td>759.327.426,00</td></tr>
+                    <tr><td scope="row">66</td><td>Finland</td><td>Land</td><td>2020</td><td>36329.9</td></tr>
+                    <tr><td scope="row">67</td><td>Fiji</td><td>Land</td><td>2020</td><td>1028.2</td></tr>
+                    <tr><td scope="row">68</td><td>France</td><td>Land</td><td>2020</td><td>267154.7</td></tr>
+                    <tr><td scope="row">69</td><td>Gabon</td><td>Land</td><td>2020</td><td>5349.2</td></tr>
+                    <tr><td scope="row">70</td><td>United Kingdom</td><td>Land</td><td>2020</td><td>308650.3</td></tr>
+                    <tr><td scope="row">71</td><td>Georgia</td><td>Land</td><td>2020</td><td>10255.0</td></tr>
+                    <tr><td scope="row">72</td><td>Ghana</td><td>Land</td><td>2020</td><td>19401.16</td></tr>
+                    <tr><td scope="row">73</td><td>Guinea</td><td>Land</td><td>2020</td><td>4537.9</td></tr>
+                    <tr><td scope="row">74</td><td>Guinea-Bissau</td><td>Land</td><td>2020</td><td>329.0</td></tr>
+                    <tr><td scope="row">75</td><td>Equatorial Guinea</td><td>Land</td><td>2020</td><td>4350.4</td></tr>
+                    <tr><td scope="row">76</td><td>Greece</td><td>Land</td><td>2020</td><td>51002.2</td></tr>
+                    <tr><td scope="row">77</td><td>Grenada</td><td>Land</td><td>2020</td><td>324.5</td></tr>
+                    <tr><td scope="row">78</td><td>Guatemala</td><td>Land</td><td>2020</td><td>16865.2</td></tr>
+                    <tr><td scope="row">79</td><td>Guyana</td><td>Land</td><td>2020</td><td>2768.5</td></tr>
+                    <tr><td scope="row">80</td><td>High income</td><td>Land</td><td>2020</td><td>10.864.997.070.492,00</td></tr>
+                    <tr><td scope="row">81</td><td>Honduras</td><td>Land</td><td>2020</td><td>8835.4</td></tr>
+                    <tr><td scope="row">82</td><td>Heavily indebted poor countries (HIPC)</td><td>Land</td><td>2020</td><td>224.996.636,00</td></tr>
+                    <tr><td scope="row">83</td><td>Croatia</td><td>Land</td><td>2020</td><td>15626.9</td></tr>
+                    <tr><td scope="row">84</td><td>Haiti</td><td>Land</td><td>2020</td><td>3209.04</td></tr>
+                    <tr><td scope="row">85</td><td>Hungary</td><td>Land</td><td>2020</td><td>44769.3</td></tr>
+                    <tr><td scope="row">86</td><td>IBRD only</td><td>Land</td><td>2020</td><td>20.952.613.307,00</td></tr>
+                    <tr><td scope="row">87</td><td>IDA & IBRD total</td><td>Land</td><td>2020</td><td>21.862.973.943,00</td></tr>
+                    <tr><td scope="row">88</td><td>IDA total</td><td>Land</td><td>2020</td><td>910.360.636,00</td></tr>
+                    <tr><td scope="row">89</td><td>IDA blend</td><td>Land</td><td>2020</td><td>465301.4</td></tr>
+                    <tr><td scope="row">90</td><td>Indonesia</td><td>Land</td><td>2020</td><td>563197.0</td></tr>
+                    <tr><td scope="row">91</td><td>IDA only</td><td>Land</td><td>2020</td><td>445.059.236,00</td></tr>
+                    <tr><td scope="row">92</td><td>India</td><td>Land</td><td>2020</td><td>2200836.3</td></tr>
+                    <tr><td scope="row">93</td><td>Ireland</td><td>Land</td><td>2020</td><td>33742.2</td></tr>
+                    <tr><td scope="row">94</td><td>Iraq</td><td>Land</td><td>2020</td><td>163511.5</td></tr>
+                    <tr><td scope="row">95</td><td>Iceland</td><td>Land</td><td>2020</td><td>1446.6</td></tr>
+                    <tr><td scope="row">96</td><td>Israel</td><td>Land</td><td>2020</td><td>58471.8</td></tr>
+                    <tr><td scope="row">97</td><td>Italy</td><td>Land</td><td>2020</td><td>5835.6</td></tr>
+                    <tr><td scope="row">98</td><td>Jamaica</td><td>Land</td><td>2020</td><td>20974.1</td></tr>
+                    <tr><td scope="row">99</td><td>Jordan</td><td>Land</td><td>2020</td><td>1014064.7</td></tr>
+                    <tr><td scope="row">100</td><td>Japan</td><td>Land</td><td>2020</td><td>211896.7</td></tr>
+                    <tr><td scope="row">101</td><td>Kazakhstan</td><td>Land</td><td>2020</td><td>19446.8</td></tr>
+                    <tr><td scope="row">102</td><td>Kenya</td><td>Land</td><td>2020</td><td>9080.1</td></tr>
+                    <tr><td scope="row">103</td><td>Kyrgyz Republic</td><td>Land</td><td>2020</td><td>18652.8</td></tr>
+                    <tr><td scope="row">104</td><td>Cambodia</td><td>Land</td><td>2020</td><td>56.9</td></tr>
+                    <tr><td scope="row">105</td><td>Kiribati</td><td>Land</td><td>2020</td><td>231.0</td></tr>
+                    <tr><td scope="row">106</td><td>St. Kitts and Nevis</td><td>Land</td><td>2020</td><td>92308.9</td></tr>
+                    <tr><td scope="row">107</td><td>Kuwait</td><td>Land</td><td>2020</td><td>1242200.06</td></tr>
+                    <tr><td scope="row">108</td><td>Latin America & Caribbean (excluding high income)</td><td>Land</td><td>2020</td><td>19178.9</td></tr>
+                    <tr><td scope="row">109</td><td>Lao PDR</td><td>Land</td><td>2020</td><td>21474.9</td></tr>
+                    <tr><td scope="row">110</td><td>Lebanon</td><td>Land</td><td>2020</td><td>1179.5</td></tr>
+                    <tr><td scope="row">111</td><td>Liberia</td><td>Land</td><td>2020</td><td>44467.0</td></tr>
+                    <tr><td scope="row">112</td><td>Libya</td><td>Land</td><td>2020</td><td>499.2</td></tr>
+                    <tr><td scope="row">113</td><td>St. Lucia</td><td>Land</td><td>2020</td><td>1438080.03</td></tr>
+                    <tr><td scope="row">114</td><td>Latin America & Caribbean</td><td>Land</td><td>2020</td><td>351.230.476,00</td></tr>
+                    <tr><td scope="row">115</td><td>Least developed countries: UN classification</td><td>Land</td><td>2020</td><td>179.664.936,00</td></tr>
+                    <tr><td scope="row">116</td><td>Low income</td><td>Land</td><td>2020</td><td>141.996.093,00</td></tr>
+                    <tr><td scope="row">117</td><td>Liechtenstein</td><td>Land</td><td>2020</td><td>21846.3</td></tr>
+                    <tr><td scope="row">118</td><td>Sri Lanka</td><td>Land</td><td>2020</td><td>4819595.8</td></tr>
+                    <tr><td scope="row">119</td><td>Lower middle income</td><td>Land</td><td>2020</td><td>21.383.256.243,00</td></tr>
+                    <tr><td scope="row">120</td><td>Low & middle income</td><td>Land</td><td>2020</td><td>2311.9</td></tr>
+                    <tr><td scope="row">121</td><td>Lesotho</td><td>Land</td><td>2020</td><td>15488347.62</td></tr>
+                    <tr><td scope="row">122</td><td>Late-demographic dividend</td><td>Land</td><td>2020</td><td>11693.8</td></tr>
+                    <tr><td scope="row">123</td><td>Lithuania</td><td>Land</td><td>2020</td><td>7853.1</td></tr>
+                    <tr><td scope="row">124</td><td>Luxembourg</td><td>Land</td><td>2020</td><td>6928.3</td></tr>
+                    <tr><td scope="row">125</td><td>Latvia</td><td>Land</td><td>2020</td><td>66719.5</td></tr>
+                    <tr><td scope="row">126</td><td>Morocco</td><td>Land</td><td>2020</td><td>8611.2</td></tr>
+                    <tr><td scope="row">127</td><td>Moldova</td><td>Land</td><td>2020</td><td>2745.45</td></tr>
+                    <tr><td scope="row">128</td><td>Madagascar</td><td>Land</td><td>2020</td><td>1454.0</td></tr>
+                    <tr><td scope="row">129</td><td>Maldives</td><td>Land</td><td>2020</td><td>2416064.9</td></tr>
+                    <tr><td scope="row">130</td><td>Middle East & North Africa</td><td>Land</td><td>2020</td><td>383131.4</td></tr>
+                    <tr><td scope="row">131</td><td>Mexico</td><td>Land</td><td>2020</td><td>110.0</td></tr>
+                    <tr><td scope="row">132</td><td>North America</td><td>Land</td><td>2020</td><td>897.4</td></tr>
+                    <tr><td scope="row">133</td><td>Middle income</td><td>Land</td><td>2020</td><td>190.491.908.287,00</td></tr>
+                    <tr><td scope="row">134</td><td>Montenegro</td><td>Land</td><td>2020</td><td>2925.2</td></tr>
+                    <tr><td scope="row">135</td><td>Myanmar</td><td>Land</td><td>2020</td><td>69421.7</td></tr>
+                    <tr><td scope="row">136</td><td>Mauritius</td><td>Land</td><td>2020</td><td>15402.3</td></tr>
+                    <tr><td scope="row">137</td><td>Mali</td><td>Land</td><td>2020</td><td>53067.7</td></tr>
+                    <tr><td scope="row">138</td><td>Moldova, Republic of</td><td>Land</td><td>2020</td><td>2991.8</td></tr>
+                    <tr><td scope="row">139</td><td>Malawi</td><td>Land</td><td>2020</td><td>150250.8</td></tr>
+                    <tr><td scope="row">140</td><td>Mauritania</td><td>Land</td><td>2020</td><td>6518.6</td></tr>
+                    <tr><td scope="row">141</td><td>Myanmar (formerly Burma)</td><td>Land</td><td>2020</td><td>101.105.125,00</td></tr>
+                    <tr><td scope="row">142</td><td>Middle East & North Africa (excluding high income)</td><td>Land</td><td>2020</td><td>1070240.0</td></tr>
+                    <tr><td scope="row">143</td><td>North America (excluding high income)</td><td>Land</td><td>2020</td><td>1177.0</td></tr>
+                    <tr><td scope="row">144</td><td>North Korea</td><td>Land</td><td>2020</td><td>600.0</td></tr>
+                    <tr><td scope="row">145</td><td>New Zealand</td><td>Land</td><td>2020</td><td>110000.0</td></tr>
+                    <tr><td scope="row">146</td><td>New Caledonia</td><td>Land</td><td>2020</td><td>80.5</td></tr>
+                    <tr><td scope="row">147</td><td>New Zealand (excluding high income)</td><td>Land</td><td>2020</td><td>59303.6</td></tr>
+                    <tr><td scope="row">148</td><td>Niger</td><td>Land</td><td>2020</td><td>3229.0</td></tr>
+                    <tr><td scope="row">149</td><td>Oman</td><td>Land</td><td>2020</td><td>11279.5</td></tr>
+                    <tr><td scope="row">150</td><td>Pakistan</td><td>Land</td><td>2020</td><td>41418.7</td></tr>
+                    <tr><td scope="row">151</td><td>Philippines</td><td>Land</td><td>2020</td><td>119879.2</td></tr>
+                    <tr><td scope="row">152</td><td>Poland</td><td>Land</td><td>2020</td><td>68372.6</td></tr>
+                    <tr><td scope="row">153</td><td>Portugal</td><td>Land</td><td>2020</td><td>8047.6</td></tr>
+                    <tr><td scope="row">154</td><td>Paraguay</td><td>Land</td><td>2020</td><td>37923.5</td></tr>
+                    <tr><td scope="row">155</td><td>Palestine</td><td>Land</td><td>2020</td><td>13025.4</td></tr>
+                    <tr><td scope="row">156</td><td>South Asia</td><td>Land</td><td>2020</td><td>5390709.0</td></tr>
+                    <tr><td scope="row">157</td><td>South Sudan</td><td>Land</td><td>2020</td><td>15370.9</td></tr>
+                    <tr><td scope="row">158</td><td>Somalia</td><td>Land</td><td>2020</td><td>2394.2</td></tr>
+                    <tr><td scope="row">159</td><td>Serbia</td><td>Land</td><td>2020</td><td>6919.6</td></tr>
+                    <tr><td scope="row">160</td><td>San Marino</td><td>Land</td><td>2020</td><td>4760.0</td></tr>
+                    <tr><td scope="row">161</td><td>Solomon Islands</td><td>Land</td><td>2020</td><td>1251.0</td></tr>
+                    <tr><td scope="row">162</td><td>São Tomé and Príncipe</td><td>Land</td><td>2020</td><td>1706.5</td></tr>
+                    <tr><td scope="row">163</td><td>South Korea</td><td>Land</td><td>2020</td><td>12103.0</td></tr>
+                    <tr><td scope="row">164</td><td>Saudi Arabia</td><td>Land</td><td>2020</td><td>11040.1</td></tr>
+                    <tr><td scope="row">165</td><td>Russia</td><td>Land</td><td>2020</td><td>160007.4</td></tr>
+                    <tr><td scope="row">166</td><td>Rwanda</td><td>Land</td><td>2020</td><td>50783.3</td></tr>
+                    <tr><td scope="row">167</td><td>Romania</td><td>Land</td><td>2020</td><td>26000.4</td></tr>
+                    <tr><td scope="row">168</td><td>Qatar</td><td>Land</td><td>2020</td><td>1511086.0</td></tr>
+                    <tr><td scope="row">169</td><td>South America</td><td>Land</td><td>2020</td><td>62164.3</td></tr>
+                    <tr><td scope="row">170</td><td>Singapore</td><td>Land</td><td>2020</td><td>4047.5</td></tr>
+                    <tr><td scope="row">171</td><td>Slovak Republic</td><td>Land</td><td>2020</td><td>24744.6</td></tr>
+                    <tr><td scope="row">172</td><td>Slovenia</td><td>Land</td><td>2020</td><td>1104.3</td></tr>
+                    <tr><td scope="row">173</td><td>Sierra Leone</td><td>Land</td><td>2020</td><td>12256.4</td></tr>
+                    <tr><td scope="row">174</td><td>Serbia and Montenegro</td><td>Land</td><td>2020</td><td>34648.0</td></tr>
+                    <tr><td scope="row">175</td><td>Sweden</td><td>Land</td><td>2020</td><td>65054.1</td></tr>
+                    <tr><td scope="row">176</td><td>Switzerland</td><td>Land</td><td>2020</td><td>129600.0</td></tr>
+                    <tr><td scope="row">177</td><td>Syrian Arab Republic</td><td>Land</td><td>2020</td><td>26500.0</td></tr>
+                    <tr><td scope="row">178</td><td>Sweden (excluding high income)</td><td>Land</td><td>2020</td><td>37394.0</td></tr>
+                    <tr><td scope="row">179</td><td>Syrian Arab Republic (excluding high income)</td><td>Land</td><td>2020</td><td>31500.0</td></tr>
+                    <tr><td scope="row">180</td><td>Timor-Leste</td><td>Land</td><td>2020</td><td>1006.0</td></tr>
+                    <tr><td scope="row">181</td><td>Tunisia</td><td>Land</td><td>2020</td><td>40621.6</td></tr>
+                    <tr><td scope="row">182</td><td>Tajikistan</td><td>Land</td><td>2020</td><td>15542.6</td></tr>
+                    <tr><td scope="row">183</td><td>Turkmenistan</td><td>Land</td><td>2020</td><td>37132.4</td></tr>
+                    <tr><td scope="row">184</td><td>Turkey</td><td>Land</td><td>2020</td><td>31124.6</td></tr>
+                    <tr><td scope="row">185</td><td>Tuvalu</td><td>Land</td><td>2020</td><td>150.0</td></tr>
+                    <tr><td scope="row">186</td><td>United States</td><td>Land</td><td>2020</td><td>9870137.0</td></tr>
+                    <tr><td scope="row">187</td><td>Uruguay</td><td>Land</td><td>2020</td><td>205091.1</td></tr>
+                    <tr><td scope="row">188</td><td>Venezuela</td><td>Land</td><td>2020</td><td>473158.5</td></tr>
+                    <tr><td scope="row">189</td><td>Vanuatu</td><td>Land</td><td>2020</td><td>4201.7</td></tr>
+                    <tr><td scope="row">190</td><td>West Bank and Gaza</td><td>Land</td><td>2020</td><td>12631.7</td></tr>
+                    <tr><td scope="row">191</td><td>Yemen</td><td>Land</td><td>2020</td><td>42554.5</td></tr>
+                    <tr><td scope="row">192</td><td>United Kingdom</td><td>Land</td><td>2020</td><td>35670.4</td></tr>
+                    <tr><td scope="row">193</td><td>South Africa</td><td>Land</td><td>2020</td><td>58782.3</td></tr>
+                    <tr><td scope="row">194</td><td>Switzerland (excluding high income)</td><td>Land</td><td>2020</td><td>25800.0</td></tr>
+                    <tr><td scope="row">195</td><td>United Arab Emirates</td><td>Land</td><td>2020</td><td>25986.6</td></tr>
+                    <tr><td scope="row">196</td><td>Yemen (excluding high income)</td><td>Land</td><td>2020</td><td>11088.0</td></tr>
+                    <tr><td scope="row">197</td><td>Uzbekistan</td><td>Land</td><td>2020</td><td>57093.7</td></tr>
+                    <tr><td scope="row">198</td><td>Ukraine</td><td>Land</td><td>2020</td><td>47017.3</td></tr>
+                    <tr><td scope="row">199</td><td>Vanuatu (excluding high income)</td><td>Land</td><td>2020</td><td>3500.0</td></tr>
+                    <tr><td scope="row">200</td><td>West Bank and Gaza (excluding high income)</td><td>Land</td><td>2020</td><td>5900.0</td></tr>
+                    <tr><td scope="row">201</td><td>Central Asia</td><td>Land</td><td>2020</td><td>22064.0</td></tr>
+                    <tr><td scope="row">202</td><td>World</td><td>Land</td><td>2020</td><td>30.278.304.343.00</td></tr>
+                    <tr><td scope="row">203</td><td>West Africa</td><td>Land</td><td>2020</td><td>2755.6</td></tr>
+                    <tr><td scope="row">204</td><td>South Asia (excluding high income)</td><td>Land</td><td>2020</td><td>1915.0</td></tr>
+                    <tr><td scope="row">205</td><td>South America (excluding high income)</td><td>Land</td><td>2020</td><td>45815.5</td></tr>
+                    <tr><td scope="row">206</td><td>Sub-Saharan Africa</td><td>Land</td><td>2020</td><td>23603.4</td></tr>
+                    <tr><td scope="row">207</td><td>Sub-Saharan Africa (excluding high income)</td><td>Land</td><td>2020</td><td>112605.0</td></tr>
+                    <tr><td scope="row">208</td><td>Small states</td><td>Land</td><td>2020</td><td>95181.8</td></tr>
+                    <tr><td scope="row">209</td><td>Timor-Leste (excluding high income)</td><td>Land</td><td>2020</td><td>984.0</td></tr>
+                    <tr><td scope="row">210</td><td>Africa Eastern and Southern</td><td>Land</td><td>2019</td><td>610723.5</td></tr>
+                    <tr><td scope="row">211</td><td>Afghanistan</td><td>Land</td><td>2019</td><td>11238.83</td></tr>
+                    <tr><td scope="row">212</td><td>Africa Western and Central</td><td>Land</td><td>2019</td><td>222990.35</td></tr>
+                    <tr><td scope="row">213</td><td>Angola</td><td>Land</td><td>2019</td><td>24382.9</td></tr>
+                    <tr><td scope="row">214</td><td>Albania</td><td>Land</td><td>2019</td><td>4993.3</td></tr>
+                    <tr><td scope="row">215</td><td>Andorra</td><td>Land</td><td>2019</td><td>479.984</td></tr>
+                    <tr><td scope="row">216</td><td>Arab World</td><td>Land</td><td>2019</td><td>1845846.37</td></tr>
+                    <tr><td scope="row">217</td><td>United Arab Emirates</td><td>Land</td><td>2019</td><td>185645.7</td></tr>
+                    <tr><td scope="row">218</td><td>Argentina</td><td>Land</td><td>2019</td><td>168162.0</td></tr>
+                    <tr><td scope="row">219</td><td>Armenia</td><td>Land</td><td>2019</td><td>6195.6</td></tr>
+                    <tr><td scope="row">220</td><td>Antigua and Barbuda</td><td>Land</td><td>2019</td><td>509.0</td></tr>
+                    <tr><td scope="row">221</td><td>Australia</td><td>Land</td><td>2019</td><td>395199.1</td></tr>
+                    <tr><td scope="row">222</td><td>Austria</td><td>Land</td><td>2019</td><td>64497.8</td></tr>
+                    <tr><td scope="row">223</td><td>Azerbaijan</td><td>Land</td><td>2019</td><td>35521.0</td></tr>
+                    <tr><td scope="row">224</td><td>Burundi</td><td>Land</td><td>2019</td><td>707.4</td></tr>
+                    <tr><td scope="row">225</td><td>Belgium</td><td>Land</td><td>2019</td><td>92989.4</td></tr>
+                    <tr><td scope="row">226</td><td>Benin</td><td>Land</td><td>2019</td><td>7475.5</td></tr>
+                    <tr><td scope="row">227</td><td>Burkina Faso</td><td>Land</td><td>2019</td><td>5646.5</td></tr>
+                    <tr><td scope="row">228</td><td>Bangladesh</td><td>Land</td><td>2019</td><td>92645.0</td></tr>
+                    <tr><td scope="row">229</td><td>Bulgaria</td><td>Land</td><td>2019</td><td>39159.9</td></tr>
+                    <tr><td scope="row">230</td><td>Bahrain</td><td>Land</td><td>2019</td><td>32966.8</td></tr>
+                    <tr><td scope="row">231</td><td>Bosnia and Herzegovina</td><td>Land</td><td>2019</td><td>21124.3</td></tr>
+                    <tr><td scope="row">232</td><td>Belarus</td><td>Land</td><td>2019</td><td>57681.2</td></tr>
+                    <tr><td scope="row">233</td><td>Belize</td><td>Land</td><td>2019</td><td>736.2</td></tr>
+                    <tr><td scope="row">234</td><td>Bolivia</td><td>Land</td><td>2019</td><td>21828.8</td></tr>
+                    <tr><td scope="row">235</td><td>Brazil</td><td>Land</td><td>2019</td><td>434318.0</td></tr>
+                    <tr><td scope="row">236</td><td>Barbados</td><td>Land</td><td>2019</td><td>1167.27</td></tr>
+                    <tr><td scope="row">237</td><td>Brunei Darussalam</td><td>Land</td><td>2019</td><td>7057.8</td></tr>
+                    <tr><td scope="row">238</td><td>Bhutan</td><td>Land</td><td>2019</td><td>1433.0</td></tr>
+                    <tr><td scope="row">239</td><td>Botswana</td><td>Land</td><td>2019</td><td>7198.3</td></tr>
+                    <tr><td scope="row">240</td><td>Central African Republic</td><td>Land</td><td>2019</td><td>235.4</td></tr>
+                    <tr><td scope="row">241</td><td>Canada</td><td>Land</td><td>2019</td><td>566001.8</td></tr>
+                    <tr><td scope="row">242</td><td>Central Europe and the Baltics</td><td>Land</td><td>2019</td><td>643612.1</td></tr>
+                    <tr><td scope="row">243</td><td>Switzerland</td><td>Land</td><td>2019</td><td>37376.3</td></tr>
+                    <tr><td scope="row">244</td><td>Chile</td><td>Land</td><td>2019</td><td>91915.4</td></tr>
+                    <tr><td scope="row">245</td><td>China</td><td>Land</td><td>2019</td><td>10762824.0</td></tr>
+                    <tr><td scope="row">246</td><td>Cote d'Ivoire</td><td>Land</td><td>2019</td><td>10838.9</td></tr>
+                    <tr><td scope="row">247</td><td>Cameroon</td><td>Land</td><td>2019</td><td>9557.3</td></tr>
+                    <tr><td scope="row">248</td><td>Colombia</td><td>Land</td><td>2019</td><td>79186.7</td></tr>
+                    <tr><td scope="row">249</td><td>Comoros</td><td>Land</td><td>2019</td><td>326.2</td></tr>
+                    <tr><td scope="row">250</td><td>Cabo Verde</td><td>Land</td><td>2019</td><td>617.2</td></tr>
+                    <tr><td scope="row">251</td><td>Costa Rica</td><td>Land</td><td>2019</td><td>7956.4</td></tr>
+                    <tr><td scope="row">252</td><td>Caribbean small states</td><td>Land</td><td>2019</td><td>37614.99</td></tr>
+                    <tr><td scope="row">253</td><td>Cuba</td><td>Land</td><td>2019</td><td>24418.5</td></tr>
+                    <tr><td scope="row">254</td><td>Cyprus</td><td>Land</td><td>2019</td><td>7191.0</td></tr>
+                    <tr><td scope="row">255</td><td>Czechia</td><td>Land</td><td>2019</td><td>97712.9</td></tr>
+                    <tr><td scope="row">256</td><td>Germany</td><td>Land</td><td>2019</td><td>658693.5</td></tr>
+                    <tr><td scope="row">257</td><td>Djibouti</td><td>Land</td><td>2019</td><td>428.27</td></tr>
+                    <tr><td scope="row">258</td><td>Dominica</td><td>Land</td><td>2019</td><td>174.1</td></tr>
+                    <tr><td scope="row">259</td><td>Denmark</td><td>Land</td><td>2019</td><td>29696.5</td></tr>
+                    <tr><td scope="row">260</td><td>Dominican Republic</td><td>Land</td><td>2019</td><td>25775.2</td></tr>
+                    <tr><td scope="row">261</td><td>Algeria</td><td>Land</td><td>2019</td><td>170582.4</td></tr>
+                    <tr><td scope="row">262</td><td>East Asia & Pacific (excluding high income)</td><td>Land</td><td>2019</td><td>12535996.7</td></tr>
+                    <tr><td scope="row">263</td><td>Early-demographic dividend</td><td>Land</td><td>2019</td><td>7347348.73</td></tr>
+                    <tr><td scope="row">264</td><td>East Asia & Pacific</td><td>Land</td><td>2019</td><td>14703257.4</td></tr>
+                    <tr><td scope="row">265</td><td>Europe & Central Asia (excluding high income)</td><td>Land</td><td>2019</td><td>2922190.2</td></tr>
+                    <tr><td scope="row">266</td><td>Europe & Central Asia</td><td>Land</td><td>2019</td><td>6034.379.546.716</td></tr>
+                    <tr><td scope="row">267</td><td>Ecuador</td><td>Land</td><td>2019</td><td>39631.4</td></tr>
+                    <tr><td scope="row">268</td><td>Euro area</td><td>Land</td><td>2019</td><td>2095.558.337</td></tr>
+                    <tr><td scope="row">269</td><td>Eritrea</td><td>Land</td><td>2019</td><td>697.2</td></tr>
+                    <tr><td scope="row">270</td><td>Spain</td><td>Land</td><td>2019</td><td>241886.5</td></tr>
+                    <tr><td scope="row">271</td><td>Estonia</td><td>Land</td><td>2019</td><td>10060.7</td></tr>
+                    <tr><td scope="row">272</td><td>Ethiopia</td><td>Land</td><td>2019</td><td>17708.0</td></tr>
+                    <tr><td scope="row">273</td><td>European Union</td><td>Land</td><td>2019</td><td>2729.768.437</td></tr>
+                    <tr><td scope="row">274</td><td>Fragile and conflict affected situations</td><td>Land</td><td>2019</td><td>854476.82</td></tr>
+                    <tr><td scope="row">275</td><td>Finland</td><td>Land</td><td>2019</td><td>40987.1</td></tr>
+                    <tr><td scope="row">276</td><td>Fiji</td><td>Land</td><td>2019</td><td>1393.5</td></tr>
+                    <tr><td scope="row">277</td><td>France</td><td>Land</td><td>2019</td><td>300561.6</td></tr>
+                    <tr><td scope="row">278</td><td>Gabon</td><td>Land</td><td>2019</td><td>5274.5</td></tr>
+                    <tr><td scope="row">279</td><td>United Kingdom</td><td>Land</td><td>2019</td><td>345934.3</td></tr>
+                    <tr><td scope="row">280</td><td>Georgia</td><td>Land</td><td>2019</td><td>10549.6</td></tr>
+                    <tr><td scope="row">281</td><td>Ghana</td><td>Land</td><td>2019</td><td>18039.1</td></tr>
+                    <tr><td scope="row">282</td><td>Guinea</td><td>Land</td><td>2019</td><td>4517.0</td></tr>
+                    <tr><td scope="row">283</td><td>Guinea-Bissau</td><td>Land</td><td>2019</td><td>325.3</td></tr>
+                    <tr><td scope="row">284</td><td>Equatorial Guinea</td><td>Land</td><td>2019</td><td>4876.5</td></tr>
+                    <tr><td scope="row">285</td><td>Greece</td><td>Land</td><td>2019</td><td>59990.3</td></tr>
+                    <tr><td scope="row">286</td><td>Grenada</td><td>Land</td><td>2019</td><td>346.2</td></tr>
+                    <tr><td scope="row">287</td><td>Guatemala</td><td>Land</td><td>2019</td><td>19017.8</td></tr>
+                    <tr><td scope="row">288</td><td>Guyana</td><td>Land</td><td>2019</td><td>2795.9</td></tr>
+                    <tr><td scope="row">289</td><td>High income</td><td>Land</td><td>2019</td><td>11.869.050.116.716</td></tr>
+                    <tr><td scope="row">290</td><td>Honduras</td><td>Land</td><td>2019</td><td>10196.4</td></tr>
+                    <tr><td scope="row">291</td><td>Heavily indebted poor countries (HIPC)</td><td>Land</td><td>2019</td><td>235656.82</td></tr>
+                    <tr><td scope="row">292</td><td>Croatia</td><td>Land</td><td>2019</td><td>16523.3</td></tr>
+                    <tr><td scope="row">293</td><td>Haiti</td><td>Land</td><td>2019</td><td>3317.34</td></tr>
+                    <tr><td scope="row">294</td><td>Hungary</td><td>Land</td><td>2019</td><td>47261.8</td></tr>
+                    <tr><td scope="row">295</td><td>IBRD only</td><td>Land</td><td>2019</td><td>21462940.42</td></tr>
+                    <tr><td scope="row">296</td><td>IDA & IBRD total</td><td>Land</td><td>2019</td><td>22406640.81</td></tr>
+                    <tr><td scope="row">297</td><td>IDA total</td><td>Land</td><td>2019</td><td>943700.39</td></tr>
+                    <tr><td scope="row">298</td><td>IDA blend</td><td>Land</td><td>2019</td><td>478944.6</td></tr>
+                    <tr><td scope="row">299</td><td>Indonesia</td><td>Land</td><td>2019</td><td>605290.6</td></tr>
+                    <tr><td scope="row">300</td><td>IDA only</td><td>Land</td><td>2019</td><td>464755.79</td></tr>
+                    <tr><td scope="row">301</td><td>India</td><td>Land</td><td>2019</td><td>2423951.4</td></tr>
+                    <tr><td scope="row">302</td><td>Ireland</td><td>Land</td><td>2019</td><td>35812.2</td></tr>
+                    <tr><td scope="row">303</td><td>Iraq</td><td>Land</td><td>2019</td><td>180687.6</td></tr>
+                    <tr><td scope="row">304</td><td>Iceland</td><td>Land</td><td>2019</td><td>1638.2</td></tr>
+                    <tr><td scope="row">305</td><td>Israel</td><td>Land</td><td>2019</td><td>62796.3</td></tr>
+                    <tr><td scope="row">306</td><td>Italy</td><td>Land</td><td>2019</td><td>317223.0</td></tr>
+                    <tr><td scope="row">307</td><td>Jamaica</td><td>Land</td><td>2019</td><td>8394.3</td></tr>
+                    <tr><td scope="row">308</td><td>Jordan</td><td>Land</td><td>2019</td><td>23147.9</td></tr>
+                    <tr><td scope="row">309</td><td>Japan</td><td>Land</td><td>2019</td><td>1073645.3</td></tr>
+                    <tr><td scope="row">310</td><td>Kazakhstan</td><td>Land</td><td>2019</td><td>204592.2</td></tr>
+                    <tr><td scope="row">311</td><td>Kenya</td><td>Land</td><td>2019</td><td>19481.9</td></tr>
+                    <tr><td scope="row">312</td><td>Kyrgyz Republic</td><td>Land</td><td>2019</td><td>10017.4</td></tr>
+                    <tr><td scope="row">313</td><td>Cambodia</td><td>Land</td><td>2019</td><td>18093.2</td></tr>
+                    <tr><td scope="row">314</td><td>Kiribati</td><td>Land</td><td>2019</td><td>73.6</td></tr>
+                    <tr><td scope="row">315</td><td>St. Kitts and Nevis</td><td>Land</td><td>2019</td><td>247.5</td></tr>
+                    <tr><td scope="row">316</td><td>Kuwait</td><td>Land</td><td>2019</td><td>93863.6</td></tr>
+                    <tr><td scope="row">317</td><td>Latin America & Caribbean (excluding high income)</td><td>Land</td><td>2019</td><td>1376833.06</td></tr>
+                    <tr><td scope="row">318</td><td>Lao PDR</td><td>Land</td><td>2019</td><td>19170.9</td></tr>
+                    <tr><td scope="row">319</td><td>Lebanon</td><td>Land</td><td>2019</td><td>26916.5</td></tr>
+                    <tr><td scope="row">320</td><td>Liberia</td><td>Land</td><td>2019</td><td>1146.2</td></tr>
+                    <tr><td scope="row">321</td><td>Libya</td><td>Land</td><td>2019</td><td>54692.7</td></tr>
+                    <tr><td scope="row">322</td><td>St. Lucia</td><td>Land</td><td>2019</td><td>534.6</td></tr>
+                    <tr><td scope="row">323</td><td>Latin America & Caribbean</td><td>Land</td><td>2019</td><td>1620695.03</td></tr>
+                    <tr><td scope="row">324</td><td>Least developed countries: UN classification</td><td>Land</td><td>2019</td><td>370595.59</td></tr>
+                    <tr><td scope="row">325</td><td>Low income</td><td>Land</td><td>2019</td><td>191195.28</td></tr>
+                    <tr><td scope="row">326</td><td>Liechtenstein</td><td>Land</td><td>2019</td><td>149.025.716</td></tr>
+                    <tr><td scope="row">327</td><td>Sri Lanka</td><td>Land</td><td>2019</td><td>23427.9</td></tr>
+                    <tr><td scope="row">328</td><td>Lower middle income</td><td>Land</td><td>2019</td><td>5122757.31</td></tr>
+                    <tr><td scope="row">329</td><td>Low & middle income</td><td>Land</td><td>2019</td><td>21860472.61</td></tr>
+                    <tr><td scope="row">330</td><td>Lesotho</td><td>Land</td><td>2019</td><td>2300.1</td></tr>
+                    <tr><td scope="row">331</td><td>Late-demographic dividend</td><td>Land</td><td>2019</td><td>15468044.3</td></tr>
+                    <tr><td scope="row">332</td><td>Lithuania</td><td>Land</td><td>2019</td><td>11735.8</td></tr>
+                    <tr><td scope="row">333</td><td>Luxembourg</td><td>Land</td><td>2019</td><td>9500.3</td></tr>
+                    <tr><td scope="row">334</td><td>Latvia</td><td>Land</td><td>2019</td><td>7569.1</td></tr>
+                    <tr><td scope="row">335</td><td>Morocco</td><td>Land</td><td>2019</td><td>70986.3</td></tr>
+                    <tr><td scope="row">336</td><td>Moldova</td><td>Land</td><td>2019</td><td>8921.6</td></tr>
+                    <tr><td scope="row">337</td><td>Madagascar</td><td>Land</td><td>2019</td><td>3927.7</td></tr>
+                    <tr><td scope="row">338</td><td>Maldives</td><td>Land</td><td>2019</td><td>1999.5</td></tr>
+                    <tr><td scope="row">339</td><td>Middle East & North Africa</td><td>Land</td><td>2019</td><td>2508614.57</td></tr>
+                    <tr><td scope="row">340</td><td>Mexico</td><td>Land</td><td>2019</td><td>451828.8</td></tr>
+                    <tr><td scope="row">341</td><td>Marshall Islands</td><td>Land</td><td>2019</td><td>358.7</td></tr>
+                    <tr><td scope="row">342</td><td>North America</td><td>Land</td><td>2019</td><td>1913642.4</td></tr>
+                    <tr><td scope="row">343</td><td>Mauritius</td><td>Land</td><td>2019</td><td>1820.6</td></tr>
+                    <tr><td scope="row">344</td><td>Mali</td><td>Land</td><td>2019</td><td>4742.3</td></tr>
+                    <tr><td scope="row">345</td><td>Malawi</td><td>Land</td><td>2019</td><td>2645.8</td></tr>
+                    <tr><td scope="row">346</td><td>Mongolia</td><td>Land</td><td>2019</td><td>130954.8</td></tr>
+                    <tr><td scope="row">347</td><td>Myanmar</td><td>Land</td><td>2019</td><td>105473.6</td></tr>
+                    <tr><td scope="row">348</td><td>Montenegro</td><td>Land</td><td>2019</td><td>9600.0</td></tr>
+                    <tr><td scope="row">349</td><td>Morocco</td><td>Land</td><td>2019</td><td>70986.3</td></tr>
+                    <tr><td scope="row">350</td><td>Namibia</td><td>Land</td><td>2019</td><td>8232.0</td></tr>
+                    <tr><td scope="row">351</td><td>Niger</td><td>Land</td><td>2019</td><td>11159.0</td></tr>
+                    <tr><td scope="row">352</td><td>Nigeria</td><td>Land</td><td>2019</td><td>333557.3</td></tr>
+                    <tr><td scope="row">353</td><td>New Zealand</td><td>Land</td><td>2019</td><td>262473.4</td></tr>
+                    <tr><td scope="row">354</td><td>North Macedonia</td><td>Land</td><td>2019</td><td>12183.5</td></tr>
+                    <tr><td scope="row">355</td><td>Norway</td><td>Land</td><td>2019</td><td>38306.6</td></tr>
+                    <tr><td scope="row">356</td><td>Oman</td><td>Land</td><td>2019</td><td>87204.5</td></tr>
+                    <tr><td scope="row">357</td><td>Pakistan</td><td>Land</td><td>2019</td><td>167075.1</td></tr>
+                    <tr><td scope="row">358</td><td>Palestine</td><td>Land</td><td>2019</td><td>5916.1</td></tr>
+                    <tr><td scope="row">359</td><td>Philippines</td><td>Land</td><td>2019</td><td>300046.5</td></tr>
+                    <tr><td scope="row">360</td><td>Papua New Guinea</td><td>Land</td><td>2019</td><td>7367.2</td></tr>
+                    <tr><td scope="row">361</td><td>Poland</td><td>Land</td><td>2019</td><td>306261.7</td></tr>
+                    <tr><td scope="row">362</td><td>Portugal</td><td>Land</td><td>2019</td><td>88756.0</td></tr>
+                    <tr><td scope="row">363</td><td>Puerto Rico</td><td>Land</td><td>2019</td><td>11432.3</td></tr>
+                    <tr><td scope="row">364</td><td>Qatar</td><td>Land</td><td>2019</td><td>89022.5</td></tr>
+                    <tr><td scope="row">365</td><td>Romania</td><td>Land</td><td>2019</td><td>87229.6</td></tr>
+                    <tr><td scope="row">366</td><td>Russia</td><td>Land</td><td>2019</td><td>1879366.1</td></tr>
+                    <tr><td scope="row">367</td><td>Rwanda</td><td>Land</td><td>2019</td><td>1387.0</td></tr>
+                    <tr><td scope="row">368</td><td>Saudi Arabia</td><td>Land</td><td>2019</td><td>748768.3</td></tr>
+                    <tr><td scope="row">369</td><td>Solomon Islands</td><td>Land</td><td>2019</td><td>278.0</td></tr>
+                    <tr><td scope="row">370</td><td>Somalia</td><td>Land</td><td>2019</td><td>2439.2</td></tr>
+                    <tr><td scope="row">371</td><td>South Sudan</td><td>Land</td><td>2019</td><td>1699.0</td></tr>
+                    <tr><td scope="row">372</td><td>South Asia</td><td>Land</td><td>2019</td><td>2585964.5</td></tr>
+                    <tr><td scope="row">373</td><td>Sub-Saharan Africa (excluding high income)</td><td>Land</td><td>2019</td><td>7378551.6</td></tr>
+                    <tr><td scope="row">374</td><td>Sub-Saharan Africa</td><td>Land</td><td>2019</td><td>8068211.83</td></tr>
+                    <tr><td scope="row">375</td><td>Sierra Leone</td><td>Land</td><td>2019</td><td>2225.2</td></tr>
+                    <tr><td scope="row">376</td><td>Senegal</td><td>Land</td><td>2019</td><td>7927.5</td></tr>
+                    <tr><td scope="row">377</td><td>Singapore</td><td>Land</td><td>2019</td><td>7271.3</td></tr>
+                    <tr><td scope="row">378</td><td>San Marino</td><td>Land</td><td>2019</td><td>59.9</td></tr>
+                    <tr><td scope="row">379</td><td>Suriname</td><td>Land</td><td>2019</td><td>3189.2</td></tr>
+                    <tr><td scope="row">380</td><td>Sweden</td><td>Land</td><td>2019</td><td>56594.2</td></tr>
+                    <tr><td scope="row">381</td><td>Switzerland</td><td>Land</td><td>2019</td><td>76463.8</td></tr>
+                    <tr><td scope="row">382</td><td>Syrian Arab Republic</td><td>Land</td><td>2019</td><td>54579.2</td></tr>
+                    <tr><td scope="row">383</td><td>Tajikistan</td><td>Land</td><td>2019</td><td>2296.8</td></tr>
+                    <tr><td scope="row">384</td><td>Turkmenistan</td><td>Land</td><td>2019</td><td>49424.6</td></tr>
+                    <tr><td scope="row">385</td><td>Thailand</td><td>Land</td><td>2019</td><td>109149.3</td></tr>
+                    <tr><td scope="row">386</td><td>Timor-Leste</td><td>Land</td><td>2019</td><td>3833.4</td></tr>
+                    <tr><td scope="row">387</td><td>Turkey</td><td>Land</td><td>2019</td><td>737539.6</td></tr>
+                    <tr><td scope="row">388</td><td>Taiwan</td><td>Land</td><td>2019</td><td>40544.0</td></tr>
+                    <tr><td scope="row">389</td><td>Tanzania</td><td>Land</td><td>2019</td><td>4999.8</td></tr>
+                    <tr><td scope="row">390</td><td>Trinidad and Tobago</td><td>Land</td><td>2019</td><td>3172.3</td></tr>
+                    <tr><td scope="row">391</td><td>Togo</td><td>Land</td><td>2019</td><td>4793.1</td></tr>
+                    <tr><td scope="row">392</td><td>Ukraine</td><td>Land</td><td>2019</td><td>559929.0</td></tr>
+                    <tr><td scope="row">393</td><td>United Arab Emirates</td><td>Land</td><td>2019</td><td>181704.8</td></tr>
+                    <tr><td scope="row">394</td><td>United Kingdom</td><td>Land</td><td>2019</td><td>276756.1</td></tr>
+                    <tr><td scope="row">395</td><td>United States</td><td>Land</td><td>2019</td><td>9385264.6</td></tr>
+                    <tr><td scope="row">396</td><td>Uruguay</td><td>Land</td><td>2019</td><td>34650.0</td></tr>
+                    <tr><td scope="row">397</td><td>Uzbekistan</td><td>Land</td><td>2019</td><td>18553.3</td></tr>
+                    <tr><td scope="row">398</td><td>Vanuatu</td><td>Land</td><td>2019</td><td>151.6</td></tr>
+                    <tr><td scope="row">399</td><td>Venezuela</td><td>Land</td><td>2019</td><td>33449.8</td></tr>
+                    <tr><td scope="row">400</td><td>West Bank and Gaza</td><td>Land</td><td>2019</td><td>5916.1</td></tr>
+                    <tr><td scope="row">401</td><td>World</td><td>Land</td><td>2019</td><td>10318777.74</td></tr>
+                    <tr><td scope="row">402</td><td>Zambia</td><td>Land</td><td>2019</td><td>10844.4</td></tr>
+                    <tr><td scope="row">403</td><td>Zimbabwe</td><td>Land</td><td>2019</td><td>20887.5</td></tr>
+                   <!-- hier noch Daten für Unternehmen einfügen!
+                    ggf. isnerten über csv o.ä.?-->
+
+                </tbody>
+                <tfoot>
+                  *Angabe in Tonnen
+                </tfoot>
+              </table>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="privacy.html">Datenschutz</a></li>
+                <li><a href="imprint.html">Impressum</a></li>
+            </ul>
+        </nav>
+    </footer>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- DataTables JS -->
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+        <!-- Bootstrap JS (Optional, für andere Bootstrap-Funktionen) -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var table = new DataTable('#tabelleco2', {  
+                    // Optional: Hier kannst du weitere DataTables-Optionen anpassen
+                    paging: true,          // Seitenumschaltung aktivieren
+                    searching: true,       // Suchfeld aktivieren
+                    ordering: true,        // Sortierung aktivieren
+                    info: true,            // Informationen zur Tabelle anzeigen
+                    // Optionale Anpassungen
+                    language: {
+                        url: 'https://cdn.datatables.net/plug-ins/2.1.3/i18n/de-DE.json', // Deutsche Sprache
+                    },
+                });
+            });
+        </script>
+</body>
+</html>

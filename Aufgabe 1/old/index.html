@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>CO2-Transparenz GmbH</title>
+    <style type="text/css">
+        header { background-color: #afa; }
+        header nav ul li { display: inline; }
+        main { display: flex; }
+        main nav { width: 40%; background-color: #aaf;}
+        main div#content { width: 100%; background-color: #aff; }
+        footer { background-color: #faa; }
+        footer nav ul { text-align: center; }
+        footer nav ul li { display: inline; }
+        @media screen and (max-width: 767px) {
+            main { display: block; }
+            main nav, main div#content { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <noscript>
+        <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      </noscript>
+      <div id="app"></div>
+      <!-- built files will be auto injected -->
+    <h1>CO2-Transparenz GmbH</h1>
+    <header>
+        <nav>
+            <ul>
+                <form>
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="emissions.html">Emissionsdaten</a></li>
+                    <li><a href="co2-transparenz.html">Über uns</a></li>
+                    <li><a href="offers.html">Unsere Stellenangebote</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><input type="text" name="suche" placeholder="Suche"></li>
+                </form>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="content">
+            <h1>Hier kommt mal noch Text hin...</h1>
+            <p> hier Text</p>
+        </div>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="https://www.instagram.com/WebAppStartup">Instagram</a></li>
+                <li><a href="https://www.facebook.com/WebAppStartup">Facebook</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="privacy.html">Datenschutz</a></li>
+                <li><a href="imprint.html">Impressum</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
